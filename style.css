@@ -1,29 +1,20 @@
-/* Light Theme Variables (Modern & Clean) */
 :root {
     --primary-color: #3498db;
-    /* Muted Blue */
     --secondary-color: #2ecc71;
-    /* Emerald Green (for download/highlight) */
     --accent-color: #f39c12;
-    /* Orange for subtle accents/warnings */
     --text-color: #2c3e50;
-    /* Dark desaturated blue/grey */
     --light-text-color: #555;
     --bg-color: #ecf0f1;
-    /* Light grey blue */
     --card-bg: #ffffff;
     --border-color: #bdc3c7;
-    /* Light grey for borders */
     --input-bg: #ffffff;
     --shadow-light: rgba(52, 73, 94, 0.1);
     --shadow-medium: rgba(52, 73, 94, 0.2);
     --toggle-bg: #ccc;
     --toggle-circle: #fff;
     --copy-feedback-bg: #28a745;
-    /* Success green */
     --copy-feedback-color: white;
     --clear-button-bg: #e74c3c;
-    /* Error red */
     --clear-button-hover: #c0392b;
     --history-item-bg: #f9f9f9;
     --history-item-hover: #f0f0f0;
@@ -32,18 +23,13 @@
     --input-error-bg: #fff5f5;
 }
 
-/* Dark Theme Variables */
 body.dark-theme {
     --primary-color: #64b5f6;
-    /* Lighter blue for dark mode */
     --secondary-color: #81c784;
-    /* Lighter green for dark mode */
     --accent-color: #ffb74d;
-    /* Lighter orange for dark mode */
     --text-color: #ecf0f1;
     --light-text-color: #bbb;
     --bg-color: #212121;
-    /* Very dark grey */
     --card-bg: #303030;
     --border-color: #424242;
     --input-bg: #424242;
@@ -52,9 +38,7 @@ body.dark-theme {
     --toggle-bg: #64b5f6;
     --toggle-circle: #212121;
     --copy-feedback-bg: #4a7e91;
-    /* Muted teal-blue for dark mode success */
     --clear-button-bg: #cf6679;
-    /* Muted red for dark mode error */
     --clear-button-hover: #b0576a;
     --history-item-bg: #3a3a3a;
     --history-item-hover: #4a4a4a;
@@ -121,7 +105,6 @@ body {
     box-shadow: 0 10px 30px var(--shadow-medium);
     padding: 40px;
     max-width: 650px;
-    /* Slightly wider for more balanced layout */
     width: 100%;
     text-align: center;
     transform: translateY(0);
@@ -148,10 +131,8 @@ h2 {
     margin-bottom: 15px;
     font-weight: 600;
     border-bottom: 1px solid var(--border-color);
-    /* Subtle divider */
     padding-bottom: 10px;
     margin-left: -20px;
-    /* Extend border slightly */
     margin-right: -20px;
     padding-left: 20px;
     padding-right: 20px;
@@ -166,7 +147,6 @@ label {
     display: block;
     margin-bottom: 8px;
     color: var(--light-text-color);
-    /* Lighter label text */
     font-weight: 600;
     font-size: 0.95em;
 }
@@ -180,7 +160,6 @@ input[type="datetime-local"],
 select,
 textarea {
     width: calc(100% - 22px);
-    /* Adjust for padding and border */
     padding: 12px 10px;
     border: 1px solid var(--border-color);
     border-radius: 8px;
@@ -200,7 +179,6 @@ input[type="color"] {
     cursor: pointer;
     border-radius: 4px;
     border: 1px solid var(--border-color);
-    /* Add border to color picker */
 }
 
 input[type="text"]:focus,
@@ -214,11 +192,9 @@ textarea:focus,
 input[type="color"]:focus {
     border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
-    /* Use primary color for focus shadow */
     outline: none;
 }
 
-/* Input sections for dynamic forms */
 .input-section {
     display: none;
     transition: opacity 0.3s ease;
@@ -234,7 +210,6 @@ input[type="color"]:focus {
     margin-top: 25px;
     margin-bottom: 25px;
     border: 1px solid var(--border-color);
-    /* Solid border for clarity */
     border-radius: 10px;
     padding: 20px;
     background-color: var(--input-bg);
@@ -244,7 +219,6 @@ input[type="color"]:focus {
 .option-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    /* Adjusted minmax for better spacing */
     gap: 20px;
     text-align: left;
 }
@@ -280,7 +254,6 @@ button {
 
 button:hover {
     background-color: #2980b9;
-    /* Slightly darker primary on hover */
     transform: translateY(-2px);
     box-shadow: 0 6px 20px var(--shadow-medium);
 }
@@ -301,12 +274,9 @@ button:active {
 #qrcode-container {
     margin-top: 30px;
     padding: 25px;
-    /* Slightly more padding */
     border: 2px solid var(--primary-color);
-    /* More prominent border */
     border-radius: 12px;
     min-height: 250px;
-    /* Slightly larger min-height */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -316,7 +286,6 @@ button:active {
     position: relative;
     overflow: hidden;
     box-shadow: 0 5px 20px var(--shadow-light);
-    /* Add shadow to QR container */
 }
 
 #qrcode {
@@ -335,7 +304,6 @@ button:active {
     font-style: italic;
     transition: opacity 0.3s ease, color 0.3s ease;
     position: absolute;
-    /* Position message over QR container */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -371,12 +339,10 @@ button:active {
 
 #downloadBtn:hover {
     background-color: #27ae60;
-    /* Darker secondary on hover */
 }
 
 #copyTextBtn {
     background-color: #7f8c8d;
-    /* Muted grey for copy */
 }
 
 #copyTextBtn:hover {
@@ -411,18 +377,15 @@ button:active {
     bottom: 70px;
 }
 
-/* History Section */
 .history-section {
     margin-top: 40px;
     padding: 20px;
     border: 1px solid var(--border-color);
-    /* Solid border */
     border-radius: 10px;
     background-color: var(--input-bg);
     text-align: left;
     transition: background-color 0.3s ease, border-color 0.3s ease;
     box-shadow: 0 2px 10px var(--shadow-light);
-    /* Add subtle shadow */
 }
 
 .history-section h2 {
@@ -432,10 +395,8 @@ button:active {
     margin-top: 0;
     margin-bottom: 20px;
     border-bottom: 1px solid var(--border-color);
-    /* Consistent border */
     padding-bottom: 10px;
     margin-left: -20px;
-    /* Extend border slightly */
     margin-right: -20px;
     padding-left: 20px;
     padding-right: 20px;
@@ -451,7 +412,6 @@ button:active {
     border: 1px solid var(--border-color);
     padding: 10px;
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
-    /* Inner shadow for depth */
 }
 
 #qrHistoryList li {
@@ -466,7 +426,6 @@ button:active {
     transition: background-color 0.2s ease, transform 0.1s ease;
     word-break: break-word;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    /* Subtle shadow for each item */
 }
 
 #qrHistoryList li:last-child {
@@ -513,21 +472,16 @@ button:active {
     box-shadow: none;
     margin-top: 0;
     opacity: 1;
-    /* Ensure these are always visible */
     transform: none;
-    /* Reset transform from general button rules */
 }
 
 .history-item-actions button:hover {
     transform: translateY(-1px);
-    /* Subtle hover for small buttons */
     box-shadow: 0 1px 3px var(--shadow-light);
 }
 
-
 .history-item-actions .delete-history-item {
     background-color: #dc3545;
-    /* Red */
 }
 
 .history-item-actions .delete-history-item:hover {
@@ -536,15 +490,12 @@ button:active {
 
 .history-item-actions .copy-history-item {
     background-color: #007bff;
-    /* Blue */
 }
 
 .history-item-actions .copy-history-item:hover {
     background-color: #0056b3;
 }
 
-
-/* Input validation feedback */
 .input-feedback {
     color: var(--input-error-color);
     font-size: 0.85em;
@@ -561,14 +512,11 @@ select.invalid {
     background-color: var(--input-error-bg) !important;
 }
 
-
-/* Animations */
 @keyframes fadeInScale {
     from {
         opacity: 0;
         transform: scale(0.9);
     }
-
     to {
         opacity: 1;
         transform: scale(1);
@@ -579,60 +527,47 @@ select.invalid {
     animation: fadeInScale 0.6s ease-out forwards;
 }
 
-/* Responsive adjustments */
 @media (max-width: 600px) {
     .container {
         padding: 25px;
         margin: 15px;
     }
-
     h1 {
         font-size: 1.8em;
     }
-
     h2 {
         margin-left: -25px;
         margin-right: -25px;
         padding-left: 25px;
         padding-right: 25px;
     }
-
     button {
         padding: 12px;
         font-size: 1em;
     }
-
     .action-buttons button {
         width: 100%;
         min-width: unset;
     }
-
     .theme-toggle-wrapper {
         padding-right: 10px;
     }
-
     .option-grid {
         grid-template-columns: 1fr;
     }
-
     #qrHistoryList li {
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
     }
-
     .history-item-actions {
         width: 100%;
         justify-content: flex-end;
     }
-
     .copy-feedback {
         bottom: 10px;
-        /* Adjust for smaller screens */
     }
-
     .copy-feedback.show {
         bottom: 60px;
-        /* Adjust for smaller screens */
     }
 }
