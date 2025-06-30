@@ -1,0 +1,638 @@
+/* Light Theme Variables (Modern & Clean) */
+:root {
+    --primary-color: #3498db;
+    /* Muted Blue */
+    --secondary-color: #2ecc71;
+    /* Emerald Green (for download/highlight) */
+    --accent-color: #f39c12;
+    /* Orange for subtle accents/warnings */
+    --text-color: #2c3e50;
+    /* Dark desaturated blue/grey */
+    --light-text-color: #555;
+    --bg-color: #ecf0f1;
+    /* Light grey blue */
+    --card-bg: #ffffff;
+    --border-color: #bdc3c7;
+    /* Light grey for borders */
+    --input-bg: #ffffff;
+    --shadow-light: rgba(52, 73, 94, 0.1);
+    --shadow-medium: rgba(52, 73, 94, 0.2);
+    --toggle-bg: #ccc;
+    --toggle-circle: #fff;
+    --copy-feedback-bg: #28a745;
+    /* Success green */
+    --copy-feedback-color: white;
+    --clear-button-bg: #e74c3c;
+    /* Error red */
+    --clear-button-hover: #c0392b;
+    --history-item-bg: #f9f9f9;
+    --history-item-hover: #f0f0f0;
+    --input-error-color: #e74c3c;
+    --input-error-border: #e74c3c;
+    --input-error-bg: #fff5f5;
+}
+
+/* Dark Theme Variables */
+body.dark-theme {
+    --primary-color: #64b5f6;
+    /* Lighter blue for dark mode */
+    --secondary-color: #81c784;
+    /* Lighter green for dark mode */
+    --accent-color: #ffb74d;
+    /* Lighter orange for dark mode */
+    --text-color: #ecf0f1;
+    --light-text-color: #bbb;
+    --bg-color: #212121;
+    /* Very dark grey */
+    --card-bg: #303030;
+    --border-color: #424242;
+    --input-bg: #424242;
+    --shadow-light: rgba(0, 0, 0, 0.3);
+    --shadow-medium: rgba(0, 0, 0, 0.5);
+    --toggle-bg: #64b5f6;
+    --toggle-circle: #212121;
+    --copy-feedback-bg: #4a7e91;
+    /* Muted teal-blue for dark mode success */
+    --clear-button-bg: #cf6679;
+    /* Muted red for dark mode error */
+    --clear-button-hover: #b0576a;
+    --history-item-bg: #3a3a3a;
+    --history-item-hover: #4a4a4a;
+    --input-error-color: #cf6679;
+    --input-error-border: #cf6679;
+    --input-error-bg: #4a3a3a;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: background-color 0.4s ease, color 0.4s ease;
+    color: var(--text-color);
+}
+
+.theme-toggle-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+    margin-bottom: 20px;
+}
+
+.theme-toggle {
+    background-color: var(--toggle-bg);
+    color: var(--card-bg);
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 1.2em;
+    cursor: pointer;
+    box-shadow: 0 2px 5px var(--shadow-light);
+    transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-medium);
+}
+
+.theme-toggle:active {
+    transform: translateY(0);
+}
+
+.theme-toggle i {
+    color: var(--toggle-circle);
+}
+
+.container {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px var(--shadow-medium);
+    padding: 40px;
+    max-width: 650px;
+    /* Slightly wider for more balanced layout */
+    width: 100%;
+    text-align: center;
+    transform: translateY(0);
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out, background-color 0.4s ease, color 0.4s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px var(--shadow-medium);
+}
+
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    font-size: 2.2em;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+h2 {
+    color: var(--text-color);
+    font-size: 1.3em;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border-color);
+    /* Subtle divider */
+    padding-bottom: 10px;
+    margin-left: -20px;
+    /* Extend border slightly */
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--light-text-color);
+    /* Lighter label text */
+    font-weight: 600;
+    font-size: 0.95em;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="datetime-local"],
+select,
+textarea {
+    width: calc(100% - 22px);
+    /* Adjust for padding and border */
+    padding: 12px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 0.95em;
+    color: var(--text-color);
+    background-color: var(--input-bg);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+input[type="color"] {
+    width: 60px;
+    height: 40px;
+    padding: 0;
+    margin-left: 5px;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    /* Add border to color picker */
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="password"]:focus,
+input[type="datetime-local"]:focus,
+select:focus,
+textarea:focus,
+input[type="color"]:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+    /* Use primary color for focus shadow */
+    outline: none;
+}
+
+/* Input sections for dynamic forms */
+.input-section {
+    display: none;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.input-section.active {
+    display: block;
+    opacity: 1;
+}
+
+.customization-options {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    border: 1px solid var(--border-color);
+    /* Solid border for clarity */
+    border-radius: 10px;
+    padding: 20px;
+    background-color: var(--input-bg);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.option-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    /* Adjusted minmax for better spacing */
+    gap: 20px;
+    text-align: left;
+}
+
+.option-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.option-item label {
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    margin-top: 10px;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+button:hover {
+    background-color: #2980b9;
+    /* Slightly darker primary on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--shadow-medium);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.clear-button {
+    background-color: var(--clear-button-bg);
+    margin-top: 15px;
+}
+
+.clear-button:hover {
+    background-color: var(--clear-button-hover);
+}
+
+#qrcode-container {
+    margin-top: 30px;
+    padding: 25px;
+    /* Slightly more padding */
+    border: 2px solid var(--primary-color);
+    /* More prominent border */
+    border-radius: 12px;
+    min-height: 250px;
+    /* Slightly larger min-height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--card-bg);
+    transition: all 0.5s ease-out;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 20px var(--shadow-light);
+    /* Add shadow to QR container */
+}
+
+#qrcode {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+#qrcode.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+#qr-message {
+    color: var(--light-text-color);
+    font-style: italic;
+    transition: opacity 0.3s ease, color 0.3s ease;
+    position: absolute;
+    /* Position message over QR container */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    text-align: center;
+}
+
+#qrcode.show+#qr-message {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.action-buttons button {
+    width: calc(50% - 7.5px);
+    min-width: 180px;
+    margin-top: 0;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease, background-color 0.3s ease;
+}
+
+#downloadBtn {
+    background-color: var(--secondary-color);
+}
+
+#downloadBtn:hover {
+    background-color: #27ae60;
+    /* Darker secondary on hover */
+}
+
+#copyTextBtn {
+    background-color: #7f8c8d;
+    /* Muted grey for copy */
+}
+
+#copyTextBtn:hover {
+    background-color: #626b6c;
+}
+
+.action-buttons button.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.copy-feedback {
+    background-color: var(--copy-feedback-bg);
+    color: var(--copy-feedback-color);
+    padding: 8px 15px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-out, bottom 0.3s ease-out;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    min-width: 150px;
+    text-align: center;
+}
+
+.copy-feedback.show {
+    opacity: 1;
+    bottom: 70px;
+}
+
+/* History Section */
+.history-section {
+    margin-top: 40px;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    /* Solid border */
+    border-radius: 10px;
+    background-color: var(--input-bg);
+    text-align: left;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 2px 10px var(--shadow-light);
+    /* Add subtle shadow */
+}
+
+.history-section h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    /* Consistent border */
+    padding-bottom: 10px;
+    margin-left: -20px;
+    /* Extend border slightly */
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#qrHistoryList {
+    list-style: none;
+    padding: 0;
+    max-height: 300px;
+    overflow-y: auto;
+    border-radius: 8px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+    /* Inner shadow for depth */
+}
+
+#qrHistoryList li {
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    background-color: var(--history-item-bg);
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    word-break: break-word;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    /* Subtle shadow for each item */
+}
+
+#qrHistoryList li:last-child {
+    margin-bottom: 0;
+}
+
+#qrHistoryList li:hover {
+    background-color: var(--history-item-hover);
+    transform: translateX(3px);
+}
+
+.history-placeholder {
+    text-align: center;
+    color: var(--light-text-color);
+    font-style: italic;
+    padding: 20px;
+}
+
+.history-item-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    font-size: 0.9em;
+}
+
+.history-item-content strong {
+    color: var(--primary-color);
+    font-size: 1.05em;
+}
+
+.history-item-actions {
+    display: flex;
+    gap: 8px;
+    margin-left: 10px;
+}
+
+.history-item-actions button {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    font-size: 0.9em;
+    border-radius: 50%;
+    box-shadow: none;
+    margin-top: 0;
+    opacity: 1;
+    /* Ensure these are always visible */
+    transform: none;
+    /* Reset transform from general button rules */
+}
+
+.history-item-actions button:hover {
+    transform: translateY(-1px);
+    /* Subtle hover for small buttons */
+    box-shadow: 0 1px 3px var(--shadow-light);
+}
+
+
+.history-item-actions .delete-history-item {
+    background-color: #dc3545;
+    /* Red */
+}
+
+.history-item-actions .delete-history-item:hover {
+    background-color: #c82333;
+}
+
+.history-item-actions .copy-history-item {
+    background-color: #007bff;
+    /* Blue */
+}
+
+.history-item-actions .copy-history-item:hover {
+    background-color: #0056b3;
+}
+
+
+/* Input validation feedback */
+.input-feedback {
+    color: var(--input-error-color);
+    font-size: 0.85em;
+    margin-top: 5px;
+    text-align: left;
+    height: 1.2em;
+}
+
+input.invalid,
+textarea.invalid,
+select.invalid {
+    border-color: var(--input-error-border) !important;
+    box-shadow: 0 0 0 3px var(--input-error-color) !important;
+    background-color: var(--input-error-bg) !important;
+}
+
+
+/* Animations */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.container.animate-in {
+    animation: fadeInScale 0.6s ease-out forwards;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .container {
+        padding: 25px;
+        margin: 15px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        margin-left: -25px;
+        margin-right: -25px;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 1em;
+    }
+
+    .action-buttons button {
+        width: 100%;
+        min-width: unset;
+    }
+
+    .theme-toggle-wrapper {
+        padding-right: 10px;
+    }
+
+    .option-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #qrHistoryList li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .history-item-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .copy-feedback {
+        bottom: 10px;
+        /* Adjust for smaller screens */
+    }
+
+    .copy-feedback.show {
+        bottom: 60px;
+        /* Adjust for smaller screens */
+    }
+}

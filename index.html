@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate QR Code Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+</head>
+
+<body>
+    <div class="theme-toggle-wrapper">
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark/light theme">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+
+    <div class="container">
+        <h1>Generate Your QR Code</h1>
+
+        <div class="form-group">
+            <label for="qrType">QR Code Type:</label>
+            <select id="qrType">
+                <option value="text">Text / URL</option>
+                <option value="wifi">Wi-Fi Access</option>
+                <option value="contact">Contact (vCard)</option>
+                <option value="email">Email</option>
+                <option value="sms">SMS Message</option>
+                <option value="geo">Geolocation</option>
+                <option value="tel">Phone Call</option>
+                <option value="event">Calendar Event</option>
+            </select>
+        </div>
+
+        <div id="dynamicInputs">
+            <div id="text-inputs" class="input-section active">
+                <div class="form-group">
+                    <label for="textInput">Enter text or URL:</label>
+                    <input type="text" id="textInput" placeholder="e.g., Your Website URL or Text" required>
+                    <div class="input-feedback" id="textInputFeedback"></div>
+                </div>
+            </div>
+
+            <div id="wifi-inputs" class="input-section">
+                <div class="form-group">
+                    <label for="wifiSsid">SSID (Network Name):</label>
+                    <input type="text" id="wifiSsid" placeholder="e.g., MyHomeNetwork">
+                </div>
+                <div class="form-group">
+                    <label for="wifiPassword">Password:</label>
+                    <input type="password" id="wifiPassword" placeholder="Optional">
+                </div>
+                <div class="form-group">
+                    <label for="wifiEncryption">Encryption:</label>
+                    <select id="wifiEncryption">
+                        <option value="WPA">WPA/WPA2</option>
+                        <option value="WEP">WEP</option>
+                        <option value="nopass">None</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="contact-inputs" class="input-section">
+                <div class="form-group">
+                    <label for="contactName">Name:</label>
+                    <input type="text" id="contactName" placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="contactPhone">Phone:</label>
+                    <input type="tel" id="contactPhone" placeholder="+1234567890">
+                </div>
+                <div class="form-group">
+                    <label for="contactEmail">Email:</label>
+                    <input type="email" id="contactEmail" placeholder="john.doe@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="contactOrg">Organization:</label>
+                    <input type="text" id="contactOrg" placeholder="Acme Corp">
+                </div>
+            </div>
+
+            <div id="email-inputs" class="input-section">
+                <div class="form-group">
+                    <label for="emailTo">To:</label>
+                    <input type="email" id="emailTo" placeholder="recipient@example.com">
+                    <div class="input-feedback" id="emailToFeedback"></div>
+                </div>
+                <div class="form-group">
+                    <label for="emailSubject">Subject:</label>
+                    <input type="text" id="emailSubject" placeholder="Meeting Inquiry">
+                </div>
+                <div class="form-group">
+                    <label for="emailBody">Body:</label>
+                    <textarea id="emailBody" rows="3" placeholder="Your message here..."></textarea>
+                </div>
+            </div>
+
+            <div id="sms-inputs" class="input-section">
+                <div class="form-group">
+                    <label for="smsNumber">Phone Number:</label>
+                    <input type="tel" id="smsNumber" placeholder="+1234567890">
+                    <div class="input-feedback" id="smsNumberFeedback"></div>
+                </div>
+                <div class="form-group">
+                    <label for="smsMessage">Message:</label>
+                    <textarea id="smsMessage" rows="3" placeholder="Hello there!"></textarea>
+                </div>
+            </div>
+
+            <div id="geo-inputs" class="input-section">
+                <div class="form-group">
+                    <label for="geoLat">Latitude:</label>
+                    <input type="number" id="geoLat" step="any" placeholder="e.g., 34.0522">
+                    <div class="input-feedback" id="geoLatFeedback"></div>
+                </div>
+                <div class="form-group">
+                    <label for="geoLon">Longitude:</label>
+                    <input type="number" id="geoLon" step="any" placeholder="e.g., -118.2437">
+                    <div class="input-feedback" id="geoLonFeedback"></div>
+                </div>
+            </div>
+
+            <div id="tel-inputs" class="input-section">
+                <div class="form-group">
+                    <label for="telNumber">Phone Number:</label>
+                    <input type="tel" id="telNumber" placeholder="+1234567890">
+                    <div class="input-feedback" id="telNumberFeedback"></div>
+                </div>
+            </div>
+
+            <div id="event-inputs" class="input-section">
+                <div class="form-group">
+                    <label for="eventTitle">Event Title:</label>
+                    <input type="text" id="eventTitle" placeholder="My Birthday Party">
+                </div>
+                <div class="form-group">
+                    <label for="eventLocation">Location:</label>
+                    <input type="text" id="eventLocation" placeholder="My House, 123 Main St">
+                </div>
+                <div class="form-group">
+                    <label for="eventDescription">Description:</label>
+                    <textarea id="eventDescription" rows="2" placeholder="Fun times!"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="eventStart">Start Date/Time:</label>
+                    <input type="datetime-local" id="eventStart">
+                    <div class="input-feedback" id="eventStartFeedback"></div>
+                </div>
+                <div class="form-group">
+                    <label for="eventEnd">End Date/Time:</label>
+                    <input type="datetime-local" id="eventEnd">
+                    <div class="input-feedback" id="eventEndFeedback"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="customization-options">
+            <h2>Customize QR Code</h2>
+            <div class="option-grid">
+                <div class="option-item">
+                    <label for="qrSize">Size (px):</label>
+                    <input type="number" id="qrSize" value="200" min="50" max="500">
+                </div>
+                <div class="option-item">
+                    <label for="qrFgColor">Foreground Color:</label>
+                    <input type="color" id="qrFgColor" value="#333333">
+                </div>
+                <div class="option-item">
+                    <label for="qrBgColor">Background Color:</label>
+                    <input type="color" id="qrBgColor" value="#ffffff">
+                </div>
+                <div class="option-item">
+                    <label for="qrMargin">Margin (modules):</label>
+                    <input type="number" id="qrMargin" value="4" min="0" max="10">
+                </div>
+                <div class="option-item">
+                    <label for="qrErrorCorrection">Error Correction:</label>
+                    <select id="qrErrorCorrection">
+                        <option value="L">Low (7%)</option>
+                        <option value="M">Medium (15%)</option>
+                        <option value="Q">Quartile (25%)</option>
+                        <option value="H" selected>High (30%)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" id="generateBtn">Generate QR Code</button>
+        <button type="button" id="clearAllBtn" class="clear-button">
+            <i class="fas fa-undo"></i> Clear All
+        </button>
+
+        <div id="qrcode-container">
+            <div id="qrcode"></div>
+            <p id="qr-message">Your QR code will appear here.</p>
+        </div>
+
+        <div class="action-buttons">
+            <button id="downloadBtn" class="hidden">
+                <i class="fas fa-download"></i> Download QR Code
+            </button>
+            <button id="copyTextBtn" class="hidden">
+                <i class="fas fa-copy"></i> Copy Input Text
+            </button>
+        </div>
+        <span id="copyFeedback" class="copy-feedback"></span>
+
+        <div class="history-section">
+            <h2><i class="fas fa-history"></i> Recent QR Codes</h2>
+            <ul id="qrHistoryList">
+                <li class="history-placeholder">No QR codes generated yet.</li>
+            </ul>
+            <button id="clearHistoryBtn" class="clear-button hidden">Clear History</button>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
